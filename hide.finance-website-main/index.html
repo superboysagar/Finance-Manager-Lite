@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <title>MySavings | FinanceManagement</title>
+    <link rel="icon" href="./assets/img/finance_logo.png">
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="./assets/img/finance_logo.png" width="150" height="150" alt="logo hide finance">
+        </div>
+    </header>
+
+    <main class="container">
+        <section id='balance'>
+            <h2 class="sr-only">Balance</h2>
+
+            <div class="card incomes">
+                <h3>
+                    <span>Credits</span>
+                    <img src="./assets/img/income.svg" alt="logo income">
+                </h3>
+                <p id="incomes-display">Rs. 0,00</p>
+            </div>
+
+            <div class="card expenses">
+                <h3>
+                    <span>Debits</span>
+                    <img src="./assets/img/expense.svg" alt="logo expense">
+                </h3>
+                <p id="expenses-display">Rs. 0,00</p>
+            </div>
+
+            <div class="card total">
+                <h3>
+                    <span>Savings</span>
+                    <img src="./assets/img/total.png" alt="logo total">
+                    </h2>
+                    <p id="total-amount-display">Rs. 0,00</p>
+            </div>
+        </section>
+
+        <section id='transactions'>
+            <h2 class="sr-only">Transactions</h2>
+            <button class="open-modal-button">+New Transaction</button>
+            <table id="data-table">
+                <thead>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div id="form">
+                <h2 class="title">New Transaction</h2>
+                <form action="" onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label class="sr-only" for="description">Description</label>
+                        <input type="text" id="description" name="description" placeholder="Description" autocomplete="off"/>
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="amount">Amount</label>
+                        <input type="number" step=0.01 id="amount" name="amount" placeholder="0,00" autocomplete="off" />
+                        <small class="help">Use the - (negative) sign for expenses and , (comma) for decimal places.</small>
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="date">Date</label>
+                        <input type="date" id="date" name="date" placeholder="dd/mm/yyyy"/>
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.toggleState()" class="button cancel">Cancel</a>
+                        <button class="btn-save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay-confirm">
+        <div class="modal-confirm">
+            <div class="confirm">
+                <h2>Are you sure you want to delete?</h2>
+                <div class="button-group">
+                    <button onclick="Modal.toggleScreen()" class="btn hover">No</button>
+                    <button onclick="Modal.toggleScreen(null, 'yes')" class="btn hover">Yes</button>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p> MySavings - Made with ❤ by Alisha Asnotkar.</p>
+    </footer>
+</body>
+<script src="./scripts.js"></script>
+
+</html>
